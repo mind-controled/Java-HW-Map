@@ -3,27 +3,27 @@ package ru.netology.manager;
 import java.util.*;
 
 public class FileOpenManager {
-    private Map<String, String> map = new HashMap<>();
+    private Map<String, String> applicationMap = new HashMap<>();
 
     public String remove(String key) {
-        return map.remove(key.toLowerCase());
+        return applicationMap.remove(key.toLowerCase());
     }
 
     public void register(String key, String app) {
-        map.putIfAbsent(key.toLowerCase(), app);
+        applicationMap.putIfAbsent(key.toLowerCase(), app);
     }
 
     public String getName(String key) {
-        return map.get(key.toLowerCase());
+        return applicationMap.get(key.toLowerCase());
     }
 
     public Set<String> showAllApps() {
-        Collection<String> result = map.values();
+        Collection<String> result = applicationMap.values();
         return new HashSet<>(result);
     }
 
     public List<String> showAllTypes() {
-        Set<String> strings = map.keySet();
+        Set<String> strings = applicationMap.keySet();
         List<String> list = new ArrayList<>(strings);
         return list;
     }
