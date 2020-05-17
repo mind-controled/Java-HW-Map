@@ -21,11 +21,11 @@ class FileOpenManagerTest {
 
     @BeforeEach
     void setUp() {
-        fileOpenManager.register(video, avi);
-        fileOpenManager.register(browser, html);
+        fileOpenManager.register(avi, video);
+        fileOpenManager.register(html, browser);
         fileOpenManager.remove(".jpg");
-        fileOpenManager.register(image, png);
-        fileOpenManager.register(image, jpg);
+        fileOpenManager.register(png, image);
+        fileOpenManager.register(jpg, image);
     }
 
     @Test

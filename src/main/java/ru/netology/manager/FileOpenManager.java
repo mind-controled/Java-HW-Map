@@ -1,7 +1,5 @@
 package ru.netology.manager;
 
-import ru.netology.comparator.FilesCompareByAlphabet;
-
 import java.util.*;
 
 public class FileOpenManager {
@@ -11,7 +9,7 @@ public class FileOpenManager {
         return map.remove(key.toLowerCase());
     }
 
-    public void register(String app, String key) {
+    public void register(String key, String app) {
         map.putIfAbsent(key.toLowerCase(), app);
     }
 
@@ -27,8 +25,6 @@ public class FileOpenManager {
     public List<String> showAllTypes() {
         Set<String> strings = map.keySet();
         List<String> list = new ArrayList<>(strings);
-        FilesCompareByAlphabet compareByAlphabet = new FilesCompareByAlphabet();
-        list.sort(compareByAlphabet);
         return list;
     }
 }
