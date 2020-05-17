@@ -11,7 +11,7 @@ public class FileOpenManager {
         return map.remove(key.toLowerCase());
     }
 
-    public void register(String key, String app) {
+    public void register(String app, String key) {
         map.putIfAbsent(key.toLowerCase(), app);
     }
 
@@ -27,7 +27,8 @@ public class FileOpenManager {
     public List<String> showAllTypes() {
         Set<String> strings = map.keySet();
         List<String> list = new ArrayList<>(strings);
-        list.sort(Comparator.naturalOrder());
+        FilesCompareByAlphabet compareByAlphabet = new FilesCompareByAlphabet();
+        list.sort(compareByAlphabet);
         return list;
     }
 }
